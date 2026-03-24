@@ -17,3 +17,7 @@ table {
 #preview {
   height: 70vh;
 }
+
+#buttons, #preview {
+  width: 38vw;
+}
