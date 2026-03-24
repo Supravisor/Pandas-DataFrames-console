@@ -1,5 +1,7 @@
 
 // pandas.DataFrame object
+let array = document.getElementById("array");
+
 const dataFrame = () => {
   if (variable.value === "") {
     return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
