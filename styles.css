@@ -55,6 +55,20 @@ td {
   border-style: solid;
 }
 
+.btn-success {
+  color: white;
+}
+
 .btn-module {
   background: #FFE873;
+}
+
+.btn-success {
+  background: #5cb85c;
+  border-color: green;
+}
+
+.btn-success:hover {
+  background: #449d44;
+  border-color: #398439;
 }

@@ -29,6 +29,25 @@
   <input type="button" class="btn btn-module" value="version" onclick="document.editor.textbox.value+='\nprint(np.__version__)'" />
 </p>
 
+<hr />
+<h2>pandas.DataFrame object</h2>
+
+<p>
+  <input type="button" class="btn btn-success" value="pd.DataFrame" onclick="dataFrame();" />
+  <input class="btn" name="array" id="array" placeholder="array" size="10" type="textfield" />
+  <input class="btn" name="variable" id="variable" placeholder="variable name" size="10" type="textfield" />
+</p>
+
+<p>
+  <input type="button" class="btn btn-success" value="create from object" onclick="createFromObject();" />
+  <input type="button" class="btn btn-success" value="create from list" onclick="createFromList();" />
+  <input type="button" class="btn btn-success" value="create from series" onclick="createFromSeries();" />
+</p>
+
+<p>
+  <input type="button" class="btn btn-success" value="columns" onclick="seriesProperties(this.value);" />
+</p>
+
               </div>
     
             </td>
