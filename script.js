@@ -42,3 +42,20 @@ const createFromSeries = () => {
       document.editor.textbox.value+="\n" + array.value + " = pd.Series(" + variable.value + ", index=['', ''])";
   }
 }
+
+const seriesProperties = (arg) => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (arg === "columns") {
+      let regex = /\s*,\s*/g;
+
+      if (value.value) {
+        document.editor.textbox.value+="\n" + variable.value + "." + arg + " = ['" + value.value.replaceAll(regex, "', '") + "']";
+      } else {
+          document.editor.textbox.value+="\n" + variable.value + "." + arg;
+      }
+
+  } else {
+      document.editor.textbox.value+="\n" + variable.value + "." + arg;
+  }
+}
