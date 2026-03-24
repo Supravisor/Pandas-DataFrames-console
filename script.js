@@ -1,6 +1,7 @@
 
 // pandas.DataFrame object
 let array = document.getElementById("array");
+let variable = document.getElementById("variable");
 
 const dataFrame = () => {
   if (variable.value === "") {
