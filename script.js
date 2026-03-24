@@ -32,3 +32,13 @@ const createFromList = () => {
       document.editor.textbox.value+="\n" + variable.value + " = pd.Series(\n    [ , , ],\n    index=['', ''],\n    name='" + value.value + "')";
   }
 }
+
+const createFromSeries = () => {
+  if (array.value === "") {
+    return alert("Please enter a new variable name in the 'array' field, in the 'pandas.DataFrame object' section.");
+  } else if (variable.value === "") {
+      return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else {
+      document.editor.textbox.value+="\n" + array.value + " = pd.Series(" + variable.value + ", index=['', ''])";
+  }
+}
