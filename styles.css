@@ -55,6 +55,10 @@ td {
   border-style: solid;
 }
 
+.btn-success {
+  color: white;
+}
+
 .btn-module {
   background: #FFE873;
 }
