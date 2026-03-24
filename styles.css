@@ -27,7 +27,9 @@ table {
 
 #preview {
   height: 70vh;
+  background: rgb(150, 150, 150);
 }
+
 
 #textbox {
   position: fixed;
