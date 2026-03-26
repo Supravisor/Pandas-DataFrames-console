@@ -111,6 +111,15 @@ const range = () => {
   }
 }
 
+// Data at a glance
+const data = (stat) => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else {
+      document.editor.textbox.value+= '\n' + document.editor.variable.value + '.' + stat;
+  }
+}
+
 // Summary statistics
 const statistics = (arg) => {
   if (variable.value === "") {
