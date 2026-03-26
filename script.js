@@ -5,6 +5,7 @@ let variable = document.getElementById("variable");
 let value = document.getElementById("value");
 let index = document.getElementById("index");
 let start = document.getElementById("start");
+let end = document.getElementById("end");
 
 const dataFrame = () => {
   if (variable.value === "") {
