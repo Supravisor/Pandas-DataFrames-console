@@ -6,6 +6,7 @@ let value = document.getElementById("value");
 let index = document.getElementById("index");
 let start = document.getElementById("start");
 let end = document.getElementById("end");
+let step = document.getElementById("step");
 
 const dataFrame = () => {
   if (variable.value === "") {
