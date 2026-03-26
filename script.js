@@ -3,6 +3,7 @@
 let array = document.getElementById("array");
 let variable = document.getElementById("variable");
 let value = document.getElementById("value");
+let index = document.getElementById("index");
 
 const dataFrame = () => {
   if (variable.value === "") {
