@@ -6,6 +6,7 @@ let value = document.getElementById("value");
 let index = document.getElementById("index");
 let start = document.getElementById("start");
 let end = document.getElementById("end");
+let step = document.getElementById("step");
 
 const dataFrame = () => {
   if (variable.value === "") {
@@ -107,5 +108,16 @@ const range = () => {
       document.editor.textbox.value+= "\n" + variable.value + "[" + start.value + ":" + end.value + "]";
   } else {
       document.editor.textbox.value+= "\n" + variable.value + "[" + start.value + ":" + end.value + ":" + step.value + "]";
+  }
+}
+
+// Summary statistics
+const statistics = (arg) => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (!axis.value) {
+      document.editor.textbox.value+="\n" + variable.value + "." + arg + "()";
+  } else {
+      document.editor.textbox.value+="\n" + variable.value + "." + arg + "(axis=" + axis.value + ")";
   }
 }
