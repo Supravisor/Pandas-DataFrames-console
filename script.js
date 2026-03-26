@@ -4,6 +4,7 @@ let array = document.getElementById("array");
 let variable = document.getElementById("variable");
 let value = document.getElementById("value");
 let index = document.getElementById("index");
+let start = document.getElementById("start");
 
 const dataFrame = () => {
   if (variable.value === "") {
