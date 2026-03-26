@@ -2,6 +2,7 @@
 // pandas.DataFrame object
 let array = document.getElementById("array");
 let variable = document.getElementById("variable");
+let value = document.getElementById("value");
 
 const dataFrame = () => {
   if (variable.value === "") {
