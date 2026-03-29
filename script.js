@@ -127,9 +127,9 @@ const assignColumn = () => {
   if (variable.value === "") {
     return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
   } else if (assignDataVariable.value === "") {
-    return alert("Please enter a new variable name in the 'array' field, in the 'pandas.DataFrame object' section.");
+      return alert("Please enter a new variable name in the 'array' field, in the 'Data at a glance' section.");
   } else if (assignDataColumn.value === "") {
-    return alert("Please enter a column in the 'column' field.");
+      return alert("Please enter a column in the 'column' field, in the 'Data at a glance' section.");
   } else {
       document.editor.textbox.value+="\n" + assignDataVariable.value + " = " + variable.value + "['" + assignDataColumn.value + "']";
   }
