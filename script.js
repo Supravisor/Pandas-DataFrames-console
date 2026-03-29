@@ -145,3 +145,15 @@ const statistics = (arg) => {
       document.editor.textbox.value+="\n" + variable.value + "." + arg + "(axis=" + axis.value + ")";
   }
 }
+
+const dataStat = (arg) => {
+  if (assignDataVariable.value === "") {
+      return alert("Please enter a new variable name in the 'new variable' field, in the 'Data at a glance' section.");
+  } else {
+      if (arg === "average") {
+        document.editor.textbox.value+="\n" + assignDataVariable.value + ".sum() / len(" + assignDataVariable.value + ")";
+      } else {
+          document.editor.textbox.value+="\n" + assignDataVariable.value + "." + arg;
+      }
+  }
+}
