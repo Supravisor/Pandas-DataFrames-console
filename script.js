@@ -145,3 +145,17 @@ const statistics = (arg) => {
       document.editor.textbox.value+="\n" + variable.value + "." + arg + "(axis=" + axis.value + ")";
   }
 }
+
+const dataStat = (arg) => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (assignDataVariable.value === "") {
+      return alert("Please enter a new variable name in the 'array' field, in the 'Data at a glance' section.");
+  } else {
+      if (arg === "average") {
+        document.editor.textbox.value+="\n" + assignDataVariable.value + ".sum() / len(" + assignDataVariable.value + ")";
+      } else {
+          document.editor.textbox.value+="\n" + assignDataVariable.value + "." + arg;
+      }
+  }
+}
