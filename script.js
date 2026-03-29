@@ -112,22 +112,13 @@ const range = () => {
 }
 
 // Data at a glance
+let assignDataColumn = document.getElementById("assignDataColumn");
+
 const data = (stat) => {
   if (variable.value === "") {
     return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
   } else {
       document.editor.textbox.value+= '\n' + document.editor.variable.value + '.' + stat;
-  }
-}
-
-// Summary statistics
-const statistics = (arg) => {
-  if (variable.value === "") {
-    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
-  } else if (!axis.value) {
-      document.editor.textbox.value+="\n" + variable.value + "." + arg + "()";
-  } else {
-      document.editor.textbox.value+="\n" + variable.value + "." + arg + "(axis=" + axis.value + ")";
   }
 }
 
@@ -140,5 +131,16 @@ const assignColumn = () => {
     return alert("Please enter a column in the 'column' field.");
   } else {
       document.editor.textbox.value+="\n" + assignDataVariable.value + " = " + variable.value + "['" + assignDataColumn.value + "']";
+  }
+}
+
+// Summary statistics
+const statistics = (arg) => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (!axis.value) {
+      document.editor.textbox.value+="\n" + variable.value + "." + arg + "()";
+  } else {
+      document.editor.textbox.value+="\n" + variable.value + "." + arg + "(axis=" + axis.value + ")";
   }
 }
