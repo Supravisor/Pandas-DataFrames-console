@@ -130,3 +130,15 @@ const statistics = (arg) => {
       document.editor.textbox.value+="\n" + variable.value + "." + arg + "(axis=" + axis.value + ")";
   }
 }
+
+const assignColumn = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (assignDataVariable.value === "") {
+    return alert("Please enter a new variable name in the 'array' field, in the 'pandas.DataFrame object' section.");
+  } else if (assignDataColumn.value === "") {
+    return alert("Please enter a column in the 'column' field.");
+  } else {
+      document.editor.textbox.value+="\n" + assignDataVariable.value + " = " + variable.value + "['" + assignDataColumn.value + "']";
+  }
+}
