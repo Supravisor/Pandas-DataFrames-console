@@ -112,11 +112,26 @@ const range = () => {
 }
 
 // Data at a glance
+let assignDataColumn = document.getElementById("assignDataColumn");
+let assignDataVariable = document.getElementById("assignDataVariable");
+
 const data = (stat) => {
   if (variable.value === "") {
     return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
   } else {
       document.editor.textbox.value+= '\n' + document.editor.variable.value + '.' + stat;
+  }
+}
+
+const assignColumn = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (assignDataVariable.value === "") {
+      return alert("Please enter a new variable name in the 'array' field, in the 'Data at a glance' section.");
+  } else if (assignDataColumn.value === "") {
+      return alert("Please enter a column in the 'column' field, in the 'Data at a glance' section.");
+  } else {
+      document.editor.textbox.value+="\n" + assignDataVariable.value + " = " + variable.value + "['" + assignDataColumn.value + "']";
   }
 }
 
