@@ -113,6 +113,7 @@ const range = () => {
 
 // Data at a glance
 let assignDataColumn = document.getElementById("assignDataColumn");
+let assignDataVariable = document.getElementById("assignDataVariable");
 
 const data = (stat) => {
   if (variable.value === "") {
