@@ -135,17 +135,6 @@ const assignColumn = () => {
   }
 }
 
-// Summary statistics
-const statistics = (arg) => {
-  if (variable.value === "") {
-    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
-  } else if (!axis.value) {
-      document.editor.textbox.value+="\n" + variable.value + "." + arg + "()";
-  } else {
-      document.editor.textbox.value+="\n" + variable.value + "." + arg + "(axis=" + axis.value + ")";
-  }
-}
-
 const dataStat = (arg) => {
   if (assignDataVariable.value === "") {
       return alert("Please enter a new variable name in the 'new variable' field, in the 'Data at a glance' section.");
@@ -157,3 +146,28 @@ const dataStat = (arg) => {
       }
   }
 }
+
+// Array Type
+const dtype = (type) => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (!type) {
+      document.editor.textbox.value+= "\n" + variable.value + ".dtype";
+  } else if (type === "dtype.value_counts()") {
+      document.editor.textbox.value+= "\n" + variable.value + "." + type;
+  } else {
+      document.editor.textbox.value+= "\npd.Series(" + variable.value + ", dtype=np." + type + ")";
+  }
+}
+
+// Summary statistics
+const statistics = (arg) => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (!axis.value) {
+      document.editor.textbox.value+="\n" + variable.value + "." + arg + "()";
+  } else {
+      document.editor.textbox.value+="\n" + variable.value + "." + arg + "(axis=" + axis.value + ")";
+  }
+}
+
