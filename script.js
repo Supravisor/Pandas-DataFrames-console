@@ -160,6 +160,50 @@ const dtype = (type) => {
   }
 }
 
+// Assigning
+let assignIndexValue = document.getElementById("assignIndexValue");
+let assignValue = document.getElementById("assignValue");
+let assignRangeStart = document.getElementById("assignRangeStart");
+let assignRangeEnd = document.getElementById("assignRangeEnd");
+
+const assignSeries = () => {
+  if (variable.value === '') {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (assignIndexValue.value === "") {
+      return alert("Please enter an element name or index in the 'index' field, in the 'Assigning' section.");
+  } else if (assignValue.value === "") {
+      return alert("Please enter a number in the 'value' field, in the 'Assigning' section.");
+  } else {
+    let format = assignIndexValue.value;
+
+    if (Math.abs(Number(format)) >= 0) {
+        format = Number(format);
+    } else {
+        format = `'${format}'`;
+    }
+
+      document.editor.textbox.value+= "\n" + variable.value + "[" + format + "] = " + assignValue.value;
+  }
+}
+
+const assignRangeSeries = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (assignRangeStart.value === "") {
+      return alert("Please enter a number in the 'start' field, in the 'Assigning' section.");
+  } else if (assignRangeEnd.value === "") {
+      return alert("Please enter a number in the 'end' field, in the 'Assigning' section.");
+  } else if (assignValue.value === "") {
+      return alert("Please enter a number in the 'value' field, in the 'Assigning' section.");
+  } else {
+      document.editor.textbox.value+= "\n" + variable.value + "[" + assignRangeStart.value + ":" + assignRangeEnd.value + "] = " + assignValue.value;
+  }
+}
+
 // Summary statistics
 const statistics = (arg) => {
   if (variable.value === "") {
