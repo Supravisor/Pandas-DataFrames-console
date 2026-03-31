@@ -163,6 +163,7 @@ const dtype = (type) => {
 // Assigning
 let assignIndexValue = document.getElementById("assignIndexValue");
 let assignValue = document.getElementById("assignValue");
+let assignRangeStart = document.getElementById("assignRangeStart");
 
 const assignSeries = () => {
   if (variable.value === '') {
