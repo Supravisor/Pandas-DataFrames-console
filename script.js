@@ -186,6 +186,22 @@ const assignSeries = () => {
   }
 }
 
+const assignRangeSeries = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (assignRangeStart.value === "") {
+      return alert("Please enter a number in the 'start' field, in the 'Assigning' section.");
+  } else if (assignRangeEnd.value === "") {
+      return alert("Please enter a number in the 'end' field, in the 'Assigning' section.");
+  } else if (assignValue.value === "") {
+      return alert("Please enter a number in the 'value' field, in the 'Assigning' section.");
+  } else {
+      document.editor.textbox.value+= "\n" + variable.value + "[" + assignRangeStart.value + ":" + assignRangeEnd.value + "] = " + assignValue.value;
+  }
+}
+
 // Summary statistics
 const statistics = (arg) => {
   if (variable.value === "") {
