@@ -237,6 +237,30 @@ const accessDataFrameColumn = () => {
   }
 }
 
+const accessDataFrameRow = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (indexDataFrameRow.value === "") {
+      return alert("Please enter a row name in the 'row' field, in the 'Indexing' section.");
+  } else {
+      let regex = /\s*,\s*/g;
+      let replacement = indexDataFrameRow.value.replace(regex, "': '");
+      let second = indexDataFrameRowSecond.value;
+
+      if (second !== "") {
+        if (second.split("").includes(",")) {
+          second = ", ['" + indexDataFrameRowSecond.value.replaceAll(regex, "', '") + "']";
+        } else {
+            second = ", '" + indexDataFrameRowSecond.value + "'";
+        }
+      }
+
+      document.editor.textbox.value+= "\n" + variable.value + ".loc['" + replacement + "'" + second + "]";
+  }
+}
+
 // Summary statistics
 const statistics = (arg) => {
   if (variable.value === "") {
