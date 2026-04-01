@@ -204,6 +204,37 @@ const assignRangeSeries = () => {
   }
 }
 
+// Indexing
+const accessDataFrameColumn = () => {
+  if (variable.value === '') {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (indexDataFrameColumn.value === "") {
+      return alert("Please enter an element name or index in the 'index' field, in the 'Indexing' section.");
+  } else {
+    let index = indexDataFrameColumn.value.replaceAll(",", "', '");
+    let recover = indexDataFrameColumn.value;
+
+    if (index.split("").includes(",")) {
+      document.editor.textbox.value+= "\n" + variable.value + "[['" + index + "']]";
+    }  else if (Math.abs(Number(recover)) >= 0) {
+        indexDataFrameColumn.value = Number(recover);
+        document.editor.textbox.value+= "\n" + variable.value + "[" + indexDataFrameColumn.value + "]";
+    } else {
+        indexDataFrameColumn.value = `'${indexDataFrameColumn.value}'`;
+
+      if (indexAssign.value === "") {
+        document.editor.textbox.value+= "\n" + variable.value + "[" + indexDataFrameColumn.value + "]";
+      } else {
+          document.editor.textbox.value+= "\n" + variable.value + "[[" + indexDataFrameColumn.value + ", '" + indexAssign.value + "']]";
+      }
+
+      indexDataFrameColumn.value = recover;
+    }
+  }
+}
+
 // Summary statistics
 const statistics = (arg) => {
   if (variable.value === "") {
