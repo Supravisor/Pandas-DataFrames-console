@@ -207,6 +207,7 @@ const assignRangeSeries = () => {
 // Indexing
 let indexDataFrameColumn = document.getElementById("indexDataFrameColumn");
 let indexDataFrameRow = document.getElementById("indexDataFrameRow");
+let indexDataFrameRowSecond = document.getElementById("indexDataFrameRowSecond");
 
 const accessDataFrameColumn = () => {
   if (variable.value === '') {
