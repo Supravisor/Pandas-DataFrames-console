@@ -205,6 +205,8 @@ const assignRangeSeries = () => {
 }
 
 // Indexing
+let indexDataFrameColumn = document.getElementById("indexDataFrameColumn");
+
 const accessDataFrameColumn = () => {
   if (variable.value === '') {
     return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
