@@ -262,6 +262,26 @@ const accessDataFrameRow = () => {
   }
 }
 
+const accessIloc = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (ilocIndexStart.value === "") {
+      return alert("Please enter a number in the 'index start' field, in the 'Indexing' section.");
+  } else {
+      if (ilocIndexEnd.value !== "") {
+        if (ilocIndexStep.value !== "") {
+          document.editor.textbox.value+= "\n" + variable.value + ".iloc" + "[[" + ilocIndexStart.value + ", " + ilocIndexEnd.value + ", " + ilocIndexStep.value + "]]";
+        } else {
+          document.editor.textbox.value+= "\n" + variable.value + ".iloc" + "[[" + ilocIndexStart.value + ", " + ilocIndexEnd.value + "]]";
+        }
+      } else {
+          document.editor.textbox.value+= "\n" + variable.value + ".iloc" + "[" + ilocIndexStart.value + "]";
+      }
+  }
+}
+
 // Summary statistics
 const statistics = (arg) => {
   if (variable.value === "") {
