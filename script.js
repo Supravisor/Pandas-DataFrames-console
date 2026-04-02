@@ -285,6 +285,28 @@ const accessIloc = () => {
   }
 }
 
+const ilocRange = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (ilocIndexRangeStart.value === "") {
+      return alert("Please enter a number in the 'range start' field, in the 'Indexing' section.");
+  } else if (ilocIndexRangeEnd.value === "") {
+      return alert("Please enter a number in the 'range end' field, in the 'Indexing' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'Indexing' section.");
+  } else if (ilocIndexStart.value === "") {
+        document.editor.textbox.value+= "\n" + variable.value + ".iloc" + "[" + ilocIndexRangeStart.value + ":" + ilocIndexRangeEnd.value  + "]";
+  } else if (ilocIndexEnd.value === "") {
+        document.editor.textbox.value+= "\n" + variable.value + ".iloc" + "[" + ilocIndexRangeStart.value + ":" + ilocIndexRangeEnd.value + ", " + ilocIndexStart.value + "]";
+  } else {
+      if (ilocStatus) {
+        document.editor.textbox.value+= "\n" + variable.value + ".iloc" + "[" + ilocIndexStart.value + ":" + ilocIndexEnd.value + ", [" + ilocIndexRangeStart.value + ", " + ilocIndexRangeEnd.value  + "]]";
+      } else {
+          document.editor.textbox.value+= "\n" + variable.value + ".iloc" + "[" + ilocIndexStart.value + ":" + ilocIndexEnd.value + ", " + ilocIndexRangeStart.value + ":" + ilocIndexRangeEnd.value  + "]";
+      }
+  }
+}
+
 // Summary statistics
 const statistics = (arg) => {
   if (variable.value === "") {
