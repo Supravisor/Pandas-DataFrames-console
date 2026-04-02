@@ -209,6 +209,7 @@ let indexDataFrameColumn = document.getElementById("indexDataFrameColumn");
 let indexDataFrameRow = document.getElementById("indexDataFrameRow");
 let indexDataFrameRowSecond = document.getElementById("indexDataFrameRowSecond");
 let ilocIndexStart = document.getElementById("ilocIndexStart");
+let ilocIndexEnd = document.getElementById("ilocIndexEnd");
 
 const accessDataFrameColumn = () => {
   if (variable.value === '') {
