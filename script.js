@@ -334,7 +334,7 @@ const assignIndex = () => {
   } else if (indexAssign.value === "") {
       return alert("Please enter a comma separated array in the 'new index' field, in the 'Indexing' section.");
   } else {
-      document.editor.textbox.value+= "\n" + variable.value + ".index = ['" + indexAssign.value.replaceAll(",", "', '").split(",") + "']";
+      document.editor.textbox.value+= "\n" + variable.value + ".index = ['" + indexAssign.value.replaceAll(/\s*,\s*/g, "', '").split(",") + "']";
   }
 }
 
