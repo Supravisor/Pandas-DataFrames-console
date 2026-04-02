@@ -213,6 +213,7 @@ let ilocIndexEnd = document.getElementById("ilocIndexEnd");
 let ilocIndexStep = document.getElementById("ilocIndexStep");
 let ilocIndexRangeStart = document.getElementById("ilocIndexRangeStart");
 let ilocIndexRangeEnd = document.getElementById("ilocIndexRangeEnd");
+let indexFunc = document.getElementById("indexFunc");
 
 const accessDataFrameColumn = () => {
   if (variable.value === '') {
