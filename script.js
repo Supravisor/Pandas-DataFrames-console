@@ -214,6 +214,7 @@ let ilocIndexStep = document.getElementById("ilocIndexStep");
 let ilocIndexRangeStart = document.getElementById("ilocIndexRangeStart");
 let ilocIndexRangeEnd = document.getElementById("ilocIndexRangeEnd");
 let indexFunc = document.getElementById("indexFunc");
+  indexFunc.style.color = "black";
 let ilocStatus = false;
 
 const accessDataFrameColumn = () => {
@@ -320,9 +321,18 @@ const ilocIndex = (arg) => {
     ilocStatus = true;
   } else {
     indexFunc.style.background = "#5c5cb8";
-    indexFunc.style.color = "black";
     indexFunc.value = "range";
     ilocStatus = false;
+  }
+}
+
+const assignIndex = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (indexAssign.value === "") {
+      return alert("Please enter a comma separated array in the 'new index' field, in the 'Indexing' section.");
+  } else {
+      document.editor.textbox.value+= "\n" + variable.value + ".index = ['" + indexAssign.value.replaceAll(",", "', '").split(",") + "']";
   }
 }
 
