@@ -211,6 +211,7 @@ let indexDataFrameRowSecond = document.getElementById("indexDataFrameRowSecond")
 let ilocIndexStart = document.getElementById("ilocIndexStart");
 let ilocIndexEnd = document.getElementById("ilocIndexEnd");
 let ilocIndexStep = document.getElementById("ilocIndexStep");
+let ilocIndexRangeStart = document.getElementById("ilocIndexRangeStart");
 
 const accessDataFrameColumn = () => {
   if (variable.value === '') {
@@ -272,7 +273,7 @@ const accessIloc = () => {
   } else if (Math.abs(Number(variable.value)) >= 0) {
       return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
   } else if (ilocIndexStart.value === "") {
-      return alert("Please enter a number in the 'index start' field, in the 'Indexing' section.");
+      return alert("Please enter a number in the 'start' field, in the 'Indexing' section.");
   } else {
       if (ilocIndexEnd.value !== "") {
         if (ilocIndexStep.value !== "") {
