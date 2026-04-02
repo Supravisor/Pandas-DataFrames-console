@@ -216,6 +216,7 @@ let ilocIndexRangeEnd = document.getElementById("ilocIndexRangeEnd");
 let indexFunc = document.getElementById("indexFunc");
   indexFunc.style.color = "black";
 let ilocStatus = false;
+let indexAssign = document.getElementById("indexAssign");
 
 const accessDataFrameColumn = () => {
   if (variable.value === '') {
@@ -321,6 +322,7 @@ const ilocIndex = (arg) => {
     ilocStatus = true;
   } else {
     indexFunc.style.background = "#5c5cb8";
+    indexFunc.style.color = "black";
     indexFunc.value = "range";
     ilocStatus = false;
   }
