@@ -310,6 +310,20 @@ const ilocRange = () => {
   }
 }
 
+const ilocIndex = (arg) => {
+  if (ilocStatus === false) {
+    indexFunc.style.background = "grey";
+    indexFunc.style.color = "white";
+    indexFunc.value = "list";
+    ilocStatus = true;
+  } else {
+    indexFunc.style.background = "#5c5cb8";
+    indexFunc.style.color = "black";
+    indexFunc.value = "range";
+    ilocStatus = false;
+  }
+}
+
 // Summary statistics
 const statistics = (arg) => {
   if (variable.value === "") {
