@@ -204,6 +204,140 @@ const assignRangeSeries = () => {
   }
 }
 
+// Indexing
+let indexDataFrameColumn = document.getElementById("indexDataFrameColumn");
+let indexDataFrameRow = document.getElementById("indexDataFrameRow");
+let indexDataFrameRowSecond = document.getElementById("indexDataFrameRowSecond");
+let ilocIndexStart = document.getElementById("ilocIndexStart");
+let ilocIndexEnd = document.getElementById("ilocIndexEnd");
+let ilocIndexStep = document.getElementById("ilocIndexStep");
+let ilocIndexRangeStart = document.getElementById("ilocIndexRangeStart");
+let ilocIndexRangeEnd = document.getElementById("ilocIndexRangeEnd");
+let indexFunc = document.getElementById("indexFunc");
+  indexFunc.style.color = "black";
+let ilocStatus = false;
+let indexAssign = document.getElementById("indexAssign");
+
+const accessDataFrameColumn = () => {
+  if (variable.value === '') {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (indexDataFrameColumn.value === "") {
+      return alert("Please enter an element name or index in the 'index' field, in the 'Indexing' section.");
+  } else {
+    let index = indexDataFrameColumn.value.replaceAll(",", "', '");
+    let recover = indexDataFrameColumn.value;
+
+    if (index.split("").includes(",")) {
+      document.editor.textbox.value+= "\n" + variable.value + "[['" + index + "']]";
+    }  else if (Math.abs(Number(recover)) >= 0) {
+        indexDataFrameColumn.value = Number(recover);
+        document.editor.textbox.value+= "\n" + variable.value + "[" + indexDataFrameColumn.value + "]";
+    } else {
+        indexDataFrameColumn.value = `'${indexDataFrameColumn.value}'`;
+
+      if (indexAssign.value === "") {
+        document.editor.textbox.value+= "\n" + variable.value + "[" + indexDataFrameColumn.value + "]";
+      } else {
+          document.editor.textbox.value+= "\n" + variable.value + "[[" + indexDataFrameColumn.value + ", '" + indexAssign.value + "']]";
+      }
+
+      indexDataFrameColumn.value = recover;
+    }
+  }
+}
+
+const accessDataFrameRow = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (indexDataFrameRow.value === "") {
+      return alert("Please enter a row name in the 'row' field, in the 'Indexing' section.");
+  } else {
+      let regex = /\s*,\s*/g;
+      let replacement = indexDataFrameRow.value.replace(regex, "': '");
+      let second = indexDataFrameRowSecond.value;
+
+      if (second !== "") {
+        if (second.split("").includes(",")) {
+          second = ", ['" + indexDataFrameRowSecond.value.replaceAll(regex, "', '") + "']";
+        } else {
+            second = ", '" + indexDataFrameRowSecond.value + "'";
+        }
+      }
+
+      document.editor.textbox.value+= "\n" + variable.value + ".loc['" + replacement + "'" + second + "]";
+  }
+}
+
+const accessIloc = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (ilocIndexStart.value === "") {
+      return alert("Please enter a number in the 'start' field, in the 'Indexing' section.");
+  } else {
+      if (ilocIndexEnd.value !== "") {
+        if (ilocIndexStep.value !== "") {
+          document.editor.textbox.value+= "\n" + variable.value + ".iloc" + "[[" + ilocIndexStart.value + ", " + ilocIndexEnd.value + ", " + ilocIndexStep.value + "]]";
+        } else {
+          document.editor.textbox.value+= "\n" + variable.value + ".iloc" + "[[" + ilocIndexStart.value + ", " + ilocIndexEnd.value + "]]";
+        }
+      } else {
+          document.editor.textbox.value+= "\n" + variable.value + ".iloc" + "[" + ilocIndexStart.value + "]";
+      }
+  }
+}
+
+const ilocRange = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (ilocIndexRangeStart.value === "") {
+      return alert("Please enter a number in the 'range start' field, in the 'Indexing' section.");
+  } else if (ilocIndexRangeEnd.value === "") {
+      return alert("Please enter a number in the 'range end' field, in the 'Indexing' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'Indexing' section.");
+  } else if (ilocIndexStart.value === "") {
+        document.editor.textbox.value+= "\n" + variable.value + ".iloc" + "[" + ilocIndexRangeStart.value + ":" + ilocIndexRangeEnd.value  + "]";
+  } else if (ilocIndexEnd.value === "") {
+        document.editor.textbox.value+= "\n" + variable.value + ".iloc" + "[" + ilocIndexRangeStart.value + ":" + ilocIndexRangeEnd.value + ", " + ilocIndexStart.value + "]";
+  } else {
+      if (ilocStatus) {
+        document.editor.textbox.value+= "\n" + variable.value + ".iloc" + "[" + ilocIndexStart.value + ":" + ilocIndexEnd.value + ", [" + ilocIndexRangeStart.value + ", " + ilocIndexRangeEnd.value  + "]]";
+      } else {
+          document.editor.textbox.value+= "\n" + variable.value + ".iloc" + "[" + ilocIndexStart.value + ":" + ilocIndexEnd.value + ", " + ilocIndexRangeStart.value + ":" + ilocIndexRangeEnd.value  + "]";
+      }
+  }
+}
+
+const ilocIndex = (arg) => {
+  if (ilocStatus === false) {
+    indexFunc.style.background = "grey";
+    indexFunc.style.color = "white";
+    indexFunc.value = "list";
+    ilocStatus = true;
+  } else {
+    indexFunc.style.background = "#5c5cb8";
+    indexFunc.style.color = "black";
+    indexFunc.value = "range";
+    ilocStatus = false;
+  }
+}
+
+const assignIndex = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (indexAssign.value === "") {
+      return alert("Please enter a comma separated array in the 'new index' field, in the 'Indexing' section.");
+  } else {
+      document.editor.textbox.value+= "\n" + variable.value + ".index = ['" + indexAssign.value.replaceAll(/\s*,\s*/g, "', '").split(",") + "']";
+  }
+}
+
 // Summary statistics
 const statistics = (arg) => {
   if (variable.value === "") {

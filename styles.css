@@ -65,6 +65,10 @@ input[type="number"] {
   width: 60px;
 }
 
+#ilocIndexRangeStart, #ilocIndexRangeEnd {
+  width: 80px;
+}
+
 .btn-primary, .btn-success, .btn-data  {
   color: white;
 }
