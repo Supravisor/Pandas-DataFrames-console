@@ -339,6 +339,8 @@ const assignIndex = () => {
 }
 
 // Slicing
+let indexSeriesRangeOne = document.getElementById("indexSeriesRangeOne");
+
 const sliceRange = () => {
   if (variable.value === "") {
     return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
