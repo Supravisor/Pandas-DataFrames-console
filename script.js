@@ -342,6 +342,7 @@ const assignIndex = () => {
 let indexSeriesRangeOne = document.getElementById("indexSeriesRangeOne");
 let indexSeriesRangeTwo = document.getElementById("indexSeriesRangeTwo");
 let startMatrix = document.getElementById("startMatrix");
+let endMatrix = document.getElementById("endMatrix");
 
 const sliceRange = () => {
   if (variable.value === "") {
