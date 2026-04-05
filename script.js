@@ -354,6 +354,20 @@ const sliceRange = () => {
   }
 }
 
+const rangeMatrix = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (startMatrix.value === "") {
+      return alert("Please enter a number in the 'start' field, in the 'Slicing' section.");
+  } else if (endMatrix.value === "") {
+      return alert("Please enter a number in the 'end' field, in the 'Slicing' section.");
+  } else {
+      document.editor.textbox.value+= "\n" + variable.value + "[" + startMatrix.value + ":" + endMatrix.value + "]";
+  }
+}
+
 // Summary statistics
 const statistics = (arg) => {
   if (variable.value === "") {
