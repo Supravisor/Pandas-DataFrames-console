@@ -338,6 +338,19 @@ const assignIndex = () => {
   }
 }
 
+// Slicing
+const sliceRange = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (indexSeriesRangeOne.value === "") {
+      return alert("Please enter an element name in the 'range one' field, in the 'Slicing' section.");
+  } else if (indexSeriesRangeTwo.value === "") {
+      return alert("Please enter an element name in the 'range two' field, in the 'Slicing' section.");
+  } else {
+      document.editor.textbox.value+= "\n" + variable.value + "['" + indexSeriesRangeOne.value + "': '" + indexSeriesRangeTwo.value + "']";
+  }
+}
+
 // Summary statistics
 const statistics = (arg) => {
   if (variable.value === "") {
