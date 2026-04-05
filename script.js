@@ -340,6 +340,7 @@ const assignIndex = () => {
 
 // Slicing
 let indexSeriesRangeOne = document.getElementById("indexSeriesRangeOne");
+let indexSeriesRangeTwo = document.getElementById("indexSeriesRangeTwo");
 
 const sliceRange = () => {
   if (variable.value === "") {
