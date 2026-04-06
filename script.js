@@ -391,6 +391,16 @@ const sliceMatrix = () => {
   }
 }
 
+const rangeMatrixReverse = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else {
+      document.editor.textbox.value+= "\n" + variable.value + "[::-1]";
+  }
+}
+
 // Summary statistics
 const statistics = (arg) => {
   if (variable.value === "") {
