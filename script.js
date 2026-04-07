@@ -414,6 +414,16 @@ const rangeMatrixOdd = () => {
 }
 
 // Summary statistics
+let axis = document.getElementById("axis");
+
+const log = (arg) => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else {
+      document.editor.textbox.value+="\nnp." + arg + "(" + variable.value + ")";
+  }
+}
+
 const statistics = (arg) => {
   if (variable.value === "") {
     return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
@@ -423,3 +433,4 @@ const statistics = (arg) => {
       document.editor.textbox.value+="\n" + variable.value + "." + arg + "(axis=" + axis.value + ")";
   }
 }
+
