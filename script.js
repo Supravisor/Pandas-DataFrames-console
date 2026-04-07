@@ -376,18 +376,10 @@ const sliceMatrix = () => {
     return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
   } else if (Math.abs(Number(variable.value)) >= 0) {
       return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
-  } else if (endMatrix.value === "") {
-      return alert("Please enter a number in the 'end' field, in the 'Slicing' section.");
   } else if (startMatrix.value === "" && endMatrix.value) {
-      if (endMatrix.value && beforeMatrix.value) {
-        document.editor.textbox.value+= "\n" + variable.value + "[" + endMatrix.value + ":, " + beforeMatrix.value + ":]";
-      } else {
-          document.editor.textbox.value+= "\n" + variable.value + "[" + endMatrix.value + ":, " + beforeMatrix.value + ":]";
-      }
+      document.editor.textbox.value+= "\n" + variable.value + "[" + endMatrix.value + ":" + beforeMatrix.value + ":]";
   } else if (startMatrix.value && endMatrix.value) {
-      document.editor.textbox.value+= "\n" + variable.value + "[:" + startMatrix.value + ", :" + endMatrix.value + "]";
-  } else {
-      return alert("Please enter a number in the 'start' or 'before' field, in the 'Slicing' section.");
+      document.editor.textbox.value+= "\n" + variable.value + "[:" + startMatrix.value + ":" + endMatrix.value + "]";
   }
 }
 
@@ -398,6 +390,16 @@ const rangeMatrixReverse = () => {
       return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
   } else {
       document.editor.textbox.value+= "\n" + variable.value + "[::-1]";
+  }
+}
+
+const rangeMatrixOdd = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else {
+      document.editor.textbox.value+= "\n" + variable.value + "[::2]";
   }
 }
 
