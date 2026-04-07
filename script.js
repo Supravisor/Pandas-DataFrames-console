@@ -380,8 +380,14 @@ const sliceMatrix = () => {
     return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
   } else if (Math.abs(Number(variable.value)) >= 0) {
       return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (endMatrix.value === "") {
+      return alert("Please enter a number in the 'end' field, in the 'Slicing' section.");
   } else if (startMatrix.value === "" && endMatrix.value) {
-      document.editor.textbox.value+= "\n" + variable.value + "[" + endMatrix.value + ":" + beforeMatrix.value + ":]";
+      if (beforeMatrix.value === "") {
+        document.editor.textbox.value+= "\n" + variable.value + "[" + endMatrix.value + ":]";
+      } else {
+          document.editor.textbox.value+= "\n" + variable.value + "[" + endMatrix.value + ":" + beforeMatrix.value + ":]";
+      }
   } else if (startMatrix.value && endMatrix.value) {
       document.editor.textbox.value+= "\n" + variable.value + "[:" + startMatrix.value + ":" + endMatrix.value + "]";
   }
