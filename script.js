@@ -367,7 +367,11 @@ const rangeMatrix = () => {
   } else if (endMatrix.value === "") {
       return alert("Please enter a number in the 'end' field, in the 'Slicing' section.");
   } else {
-      document.editor.textbox.value+= "\n" + variable.value + "[" + startMatrix.value + ":" + endMatrix.value + "]";
+      if (beforeMatrix.value) {
+        document.editor.textbox.value+= "\n" + variable.value + "[" + startMatrix.value + ":" + endMatrix.value + ":" + beforeMatrix.value + "]";
+      } else {
+          document.editor.textbox.value+= "\n" + variable.value + "[" + startMatrix.value + ":" + endMatrix.value + "]";
+      }
   }
 }
 
