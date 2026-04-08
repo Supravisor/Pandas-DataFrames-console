@@ -501,6 +501,7 @@ const addColumns = () => {
 
 // Conditional selection (Boolean arrays)
 let booleanFilter = document.getElementById("booleanFilter");
+let valueA = document.getElementById("valueA");
 
 const boolean = (arg) => {
   if (variable.value === "") {
