@@ -490,6 +490,11 @@ const addColumns = () => {
   } else {
       let regex = /\s*,\s*/g;
       document.editor.textbox.value+="\n" + array.value + " = pd.Series([" + broadcastNumbers.value.replace(regex, ", ") + "], index=['" + broadcastColumn.value.replace(regex, "', '") + "'])";
-      document.editor.textbox.value+="\n" + variable.value + "[['" + broadcastColumn.value.replaceAll(regex, "', '") + "']] + " + array.value;
+      if (variable.value) {
+        if (Math.abs(Number(variable.value)) >= 0) {
+          return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+        }
+      } else {
+          document.editor.textbox.value+="\n" + variable.value + "[['" + broadcastColumn.value.replaceAll(regex, "', '") + "']] + " + array.value;
   }
 }
