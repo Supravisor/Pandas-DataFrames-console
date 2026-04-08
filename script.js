@@ -498,3 +498,30 @@ const addColumns = () => {
       }
   }
 }
+
+// Conditional selection (Boolean arrays)
+const boolean = (arg) => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (valueA.value === "") {
+    return alert("Please enter a value in the 'condition A' field, in the 'Conditional selection (Boolean arrays)' section.");
+  } else if (valueB.value === "") {
+      return alert("Please enter a value in the 'condition B' field, in the 'Conditional selection (Boolean arrays)' section.");
+  } else {
+      if (booleanFilter.value === "") {
+        document.editor.textbox.value+="\n" + variable.value + ".loc[" + variable.value + "['" + valueA.value + "'] " + arg + " " + valueB.value + "]";
+      } else {
+
+          let filter = booleanFilter.value;
+          if (filter.split("").includes(",")) {
+            filter = "['" + filter.replaceAll(", ", "', '") + "']";
+          } else {
+              filter = "'" + filter + "'";
+          }
+
+          document.editor.textbox.value+="\n" + variable.value + ".loc[" + variable.value + "['" + valueA.value + "'] " + arg + " " + valueB.value + ", " + filter + "]";
+      }
+  }
+}
