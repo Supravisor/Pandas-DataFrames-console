@@ -232,6 +232,30 @@
   <input class="btn" name="axis" id="axis" placeholder="axis" type="number" />
 </p>
 
+<hr />
+<h2>Broadcasting and Vectorized operations</h2>
+
+<p>
+  <input type="button" class="btn btn-primary" value="+" onclick="operation(this.value);" />
+  <input type="button" class="btn btn-primary" value="+=" onclick="operation(this.value);" />
+  <input type="button" class="btn btn-primary" value="-" onclick="operation(this.value);" />
+  <input type="button" class="btn btn-primary" value="-=" onclick="operation(this.value);" />
+  <input type="button" class="btn btn-primary" value="*" onclick="operation(this.value);" />
+  <input type="button" class="btn btn-primary" value="*=" onclick="operation(this.value);" />
+  <input type="button" class="btn btn-primary" value="/" onclick="operation(this.value);" />
+  <input type="button" class="btn btn-primary" value="/=" onclick="operation(this.value);" />
+</p>
+
+<p>
+  <input class="btn" name="broadcastColumn" id="broadcastColumn" placeholder="columns" type="textfield" />
+  <input class="btn" name="broadcastNumber" id="broadcastNumber" placeholder="value" type="number" />
+</p>
+
+<p>
+  <input type="button" class="btn btn-primary" value="add columns" onclick="addColumns();" />
+  <input class="btn" name="broadcastNumbers" id="broadcastNumbers" placeholder="values" type="textfield" />
+</p>
+
               </div>
     
             </td>
