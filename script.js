@@ -436,6 +436,8 @@ const statistics = (arg) => {
 
 
 // Broadcasting and Vectorized operations
+let broadcastColumn = document.getElementById("broadcastColumn");
+
 const operation = (arg) => {
   if (variable.value === "") {
     return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
