@@ -434,3 +434,18 @@ const statistics = (arg) => {
   }
 }
 
+
+// Broadcasting and Vectorized operations
+const operation = (arg) => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (broadcastColumn.value === "") {
+      return alert("Please enter column names in the 'columns' field, in the 'Broadcasting and Vectorized operations' section.");
+  } else if (broadcastNumber.value === "") {
+      return alert("Please enter a number in the 'value' field, in the 'Broadcasting and Vectorized operations' section.");
+  } else {
+      let regex = /\s*,\s*/g;
+      document.editor.textbox.value+="\n" + variable.value + "[['" + broadcastColumn.value.replace(regex, "', '") + "']] " + arg + " " + broadcastNumber.value;
+  }
+}
+
