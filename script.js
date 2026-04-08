@@ -463,6 +463,7 @@ const statistics = (arg) => {
 // Broadcasting and Vectorized operations
 let broadcastColumn = document.getElementById("broadcastColumn");
 let broadcastNumber = document.getElementById("broadcastNumber");
+let broadcastNumbers = document.getElementById("broadcastNumbers");
 
 const operation = (arg) => {
   if (variable.value === "") {
