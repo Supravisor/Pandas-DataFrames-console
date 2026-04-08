@@ -500,6 +500,8 @@ const addColumns = () => {
 }
 
 // Conditional selection (Boolean arrays)
+let booleanFilter = document.getElementById("booleanFilter");
+
 const boolean = (arg) => {
   if (variable.value === "") {
     return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
