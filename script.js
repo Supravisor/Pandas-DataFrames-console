@@ -496,5 +496,6 @@ const addColumns = () => {
         }
       } else {
           document.editor.textbox.value+="\n" + variable.value + "[['" + broadcastColumn.value.replaceAll(regex, "', '") + "']] + " + array.value;
+      }        
   }
 }
