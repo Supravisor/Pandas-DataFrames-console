@@ -494,8 +494,7 @@ const addColumns = () => {
         if (Math.abs(Number(variable.value)) >= 0) {
           return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
         }
-      } else {
-          document.editor.textbox.value+="\n" + variable.value + "[['" + broadcastColumn.value.replaceAll(regex, "', '") + "']] + " + array.value;
-      }        
+        document.editor.textbox.value+="\n" + variable.value + "[['" + broadcastColumn.value.replaceAll(regex, "', '") + "']] + " + array.value;
+      }
   }
 }
