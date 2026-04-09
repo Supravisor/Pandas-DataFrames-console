@@ -581,3 +581,15 @@ const drop = () => {
       document.editor.textbox.value+="\n" + variable.value + ".drop(" + column + filter + axisDrop + ")";
   }
 }
+
+const dropColumn = () => {
+  if (dropColumnStatus === false) {
+    dropCol.style.background = "#5c5cb8";
+    dropCol.style.color = "white";
+    dropColumnStatus = true;
+  } else {
+    dropCol.style.background = "white";
+    dropCol.style.color = "black";
+    dropColumnStatus = false;
+  }
+}
