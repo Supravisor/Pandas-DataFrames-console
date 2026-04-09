@@ -551,6 +551,7 @@ let dropValue = document.getElementById("dropValue");
 let dropCol = document.getElementById("dropCol");
 let dropColumnStatus = false;
 let dropAxis = document.getElementById("dropAxis");
+let axisDropColumn = "";
 
 const drop = () => {
   if (variable.value === "") {
@@ -576,9 +577,9 @@ const drop = () => {
       if (dropAxis.value !== "") {
         axisDrop = ", axis=" + dropAxis.value;
       } else if (axisDropColumn !== "") {
-        axisDrop = ", axis='" + axisDropColumn + "s'";
+          axisDrop = ", axis='" + axisDropColumn + "s'";
       } else if (axisDropRow !== "") {
-        axisDrop = ", axis='" + axisDropRow + "s'";
+          axisDrop = ", axis='" + axisDropRow + "s'";
       }
 
       document.editor.textbox.value+="\n" + variable.value + ".drop(" + column + filter + axisDrop + ")";
@@ -591,8 +592,8 @@ const dropColumn = () => {
     dropCol.style.color = "white";
     dropColumnStatus = true;
   } else {
-    dropCol.style.background = "white";
-    dropCol.style.color = "black";
-    dropColumnStatus = false;
+      dropCol.style.background = "white";
+      dropCol.style.color = "black";
+      dropColumnStatus = false;
   }
 }
