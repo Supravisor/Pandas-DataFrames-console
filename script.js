@@ -634,6 +634,7 @@ const setAxis = (arg) => {
 // Modifying series
 let modifyColumn = document.getElementById("modifyColumn");
 let modifyValue = document.getElementById("modifyValue");
+let modifyIndex = document.getElementById("modifyIndex");
 
 const addDataFrame = () => {
   if (variable.value === "") {
@@ -788,7 +789,7 @@ const modifyBoolean = (arg) => {
       return alert("Please do not enter a number in the 'column' field, in the 'Modifying series' section.");
   } else if (modifyValue.value === "") {
       return alert("Please enter the primary index in the 'value' field, in the 'Modifying series' section.");
-  } else if (modifyIndex.value === '') {
+  } else if (modifyIndex.value === "") {
       return alert("Please enter the secondary index in the 'index' field, in the 'Modifying series' section.");
   } else {
       document.editor.textbox.value+="\n" + variable.value + "['" +modifyColumn.value + "'] = " + variable.value + "['" + modifyValue.value + "'] " + arg + " " + variable.value + "['" + modifyIndex.value + "']";
