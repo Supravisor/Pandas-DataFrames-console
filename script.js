@@ -529,3 +529,17 @@ const boolean = (arg) => {
       }
   }
 }
+
+const masks = (arg) => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (valueA.value === "") {
+      return alert("Please enter a value in the 'value A' field, in the 'Conditional selection (Boolean arrays)' section.");
+  } else if (valueB.value === "") {
+      return alert("Please enter a value in the 'value B' field, in the 'Conditional selection (Boolean arrays)' section.");
+  } else {
+      document.editor.textbox.value+="\n" + variable.value + "[(" + valueA.value + ") " + arg + " (" + valueB.value + ")]";
+  }
+}
