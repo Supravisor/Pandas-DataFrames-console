@@ -633,6 +633,7 @@ const setAxis = (arg) => {
 
 // Modifying series
 let modifyColumn = document.getElementById("modifyColumn");
+let modifyValue = document.getElementById("modifyValue");
 
 const addDataFrame = () => {
   if (variable.value === "") {
