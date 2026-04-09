@@ -801,6 +801,8 @@ const modifyBoolean = (arg) => {
 }
 
 // Plot
+let plotColumn = document.getElementById("plotColumn");
+
 const plot = (arg) => {
   if (variable.value === "") {
     return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
