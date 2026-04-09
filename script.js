@@ -503,6 +503,7 @@ const addColumns = () => {
 let booleanFilter = document.getElementById("booleanFilter");
 let valueA = document.getElementById("valueA");
 let valueB = document.getElementById("valueB");
+let conditionA = document.getElementById("conditionA");
 
 const boolean = (arg) => {
   if (variable.value === "") {
