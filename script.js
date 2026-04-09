@@ -651,3 +651,17 @@ const addDataFrame = () => {
       document.editor.textbox.value+="\n" + variable.value + "['" + modifyColumn.value + "'] = " + array.value;
   }
 }
+
+const modifyDataFrame = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (modifyColumn.value === "") {
+      return alert("Please enter a column name in the 'column' field, in the 'Modifying series' section.");
+  } else if (Math.abs(Number(modifyColumn.value)) >= 0) {
+      return alert("Please do not enter a number in the 'array' field, in the 'Modifying series' section.");
+  } else if (modifyValue.value === "") {
+      return alert("Please enter a new value in the 'value' field, in the 'Modifying series' section.");
+  } else {
+      document.editor.textbox.value+="\n" + variable.value + "['" + modifyColumn.value + "'] = '" + modifyValue.value + "'";
+  }
+}
