@@ -305,6 +305,51 @@
   <input type="button" class="btn" value="row" id="row" onclick="setAxis(this.value);" />
 </p>
 
+<hr />
+<h2>Modifying series</h2>
+
+<p>
+  <input type="button" class="btn btn-primary" value="add column" onclick="addDataFrame();" />
+  <input class="btn" name="modifyColumn" id="modifyColumn" placeholder="column" size="22" type="textfield" />
+</p>
+
+<p>
+  <input type="button" class="btn btn-primary" value="modify column" onclick="modifyDataFrame();" />
+  <input class="btn" name="modifyValue" id="modifyValue" placeholder="value" type="textfield" />
+</p>
+
+<p>
+  <input type="button" class="btn btn-primary" value="rename column" onclick="renameDataFrame();" />
+  <input type="button" class="btn btn-primary" value="lowercase index" onclick="lowerCaseDataFrame();" />
+  <input type="button" class="btn btn-primary" value="uppercase index" onclick="upperCaseDataFrame();" />
+</p>
+
+<p>
+  <input type="button" class="btn btn-primary" value="drop column" onclick="dropDataFrame();" />
+  <input type="button" class="btn btn-primary" value="drop index" onclick="dropIndexDataFrame();" />
+</p>
+
+<p>
+  <input type="button" class="btn btn-primary" value="append column" onclick="appendDataFrame();" />
+  <input type="button" class="btn btn-primary" value="append index" onclick="appendIndexDataFrame();" />
+</p>
+
+<p>
+  <input type="button" class="btn btn-primary" value="reset_index()" onclick="resetIndexDataFrame(this.value);" />
+  <input type="button" class="btn btn-primary" value="set_index" onclick="setIndexDataFrame(this.value);" />
+</p>
+
+<p>
+  <input type="button" class="btn btn-primary" value="+" onclick="modifyBoolean(this.value);" />
+  <input type="button" class="btn btn-primary" value="-" onclick="modifyBoolean(this.value);" />
+  <input type="button" class="btn btn-primary" value="*" onclick="modifyBoolean(this.value);" />
+  <input type="button" class="btn btn-primary" value="/" onclick="modifyBoolean(this.value);" />
+</p>
+
+<p>
+  <input class="btn" name="modifyIndex" id="modifyIndex" placeholder="index" type="texfield;" />  
+</p>
+
               </div>
     
             </td>

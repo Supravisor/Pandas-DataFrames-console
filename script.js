@@ -630,3 +630,172 @@ const setAxis = (arg) => {
 
   }
 }
+
+// Modifying series
+let modifyColumn = document.getElementById("modifyColumn");
+let modifyValue = document.getElementById("modifyValue");
+let modifyIndex = document.getElementById("modifyIndex");
+
+const addDataFrame = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (array.value === "") {
+      return alert("Please enter a new variable name in the 'array' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(array.value)) >= 0) {
+      return alert("Please do not enter a number in the 'array' field, in the 'pandas.DataFrame object' section.");
+  } else if (modifyColumn.value === "") {
+      return alert("Please enter a column name in the 'column' field, in the 'Modifying series' section.");
+  } else if (Math.abs(Number(modifyColumn.value)) >= 0) {
+      return alert("Please do not enter a number in the 'array' field, in the 'Modifying series' section.");
+  } else {
+      document.editor.textbox.value+="\n" + variable.value + "['" + modifyColumn.value + "'] = " + array.value;
+  }
+}
+
+const modifyDataFrame = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (modifyColumn.value === "") {
+      return alert("Please enter a column name in the 'column' field, in the 'Modifying series' section.");
+  } else if (Math.abs(Number(modifyColumn.value)) >= 0) {
+      return alert("Please do not enter a number in the 'column' field, in the 'Modifying series' section.");
+  } else if (modifyValue.value === "") {
+      return alert("Please enter a new value in the 'value' field, in the 'Modifying series' section.");
+  } else if (Math.abs(Number(modifyValue.value)) >= 0) {
+      return alert("Please do not enter a number in the 'value' field, in the 'Modifying series' section.");
+  } else {
+      document.editor.textbox.value+="\n" + variable.value + "['" + modifyColumn.value + "'] = '" + modifyValue.value + "'";
+  }
+}
+
+const renameDataFrame = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else {
+      document.editor.textbox.value+="\n" + variable.value + ".rename(\n    columns={\n        'old column 1': 'new column 1',\n        'old column 2': 'new column 2'\n    }, index={\n        'old index 1': 'new index 1',\n        'old index 2': 'new index 2'\n    })\n";
+  }
+}
+
+const lowerCaseDataFrame = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else {
+      document.editor.textbox.value+="\n" + variable.value + ".rename(index=str.upper)";
+  }
+}
+
+const upperCaseDataFrame = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else {
+      document.editor.textbox.value+="\n" + variable.value + ".rename(index=lambda x: x.lower())";
+  }
+}
+
+const dropDataFrame = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (modifyColumn.value === "") {
+      return alert("Please enter a column name in the 'column' field, in the 'Modifying series' section.");
+  } else if (Math.abs(Number(modifyColumn.value)) >= 0) {
+      return alert("Please do not enter a number in the 'column' field, in the 'Modifying series' section.");
+  } else {
+      document.editor.textbox.value+="\n" + variable.value + ".drop(columns='" + modifyColumn.value + "', inplace=True)";
+  }
+}
+
+const dropIndexDataFrame = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (modifyColumn.value === "") {
+      return alert("Please enter a column name in the 'column' field, in the 'Modifying series' section.");
+  } else if (Math.abs(Number(modifyColumn.value)) >= 0) {
+      return alert("Please do not enter a number in the 'column' field, in the 'Modifying series' section.");
+  } else {
+      document.editor.textbox.value+="\n" + variable.value + ".drop('" + modifyColumn.value + "', inplace=True)";
+  }
+}
+
+const appendDataFrame = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else {
+      document.editor.textbox.value+="\n" + variable.value + ".append(pd.Series({\n    'column_1': 1,\n    'column_2': 2\n}, name='description'))";
+  }
+}
+
+const appendIndexDataFrame = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (modifyColumn.value === "") {
+      return alert("Please enter a column name in the 'column' field, in the 'Modifying series' section.");
+  } else if (Math.abs(Number(modifyColumn.value)) >= 0) {
+      return alert("Please do not enter a number in the 'column' field, in the 'Modifying series' section.");
+  } else {
+      document.editor.textbox.value+="\n" + variable.value + ".loc['" + modifyColumn.value + "'] = pd.Series({\n    'column_1': 1,\n    'column_2': 2\n})";
+  }
+}
+
+const resetIndexDataFrame = (arg) => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else {
+      document.editor.textbox.value+="\n" + variable.value + " = " + variable.value + "." + arg;
+  }
+}
+
+const setIndexDataFrame = (arg) => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (modifyColumn.value === "") {
+      return alert("Please enter a column name in the 'column' field, in the 'Modifying series' section.");
+  } else if (Math.abs(Number(modifyColumn.value)) >= 0) {
+      return alert("Please do not enter a number in the 'column' field, in the 'Modifying series' section.");
+  } else {
+      document.editor.textbox.value+="\n" + variable.value + "." + arg + "('" + modifyColumn.value + "')";
+  }
+}
+
+const modifyBoolean = (arg) => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (modifyColumn.value === "") {
+      return alert("Please enter a column name in the 'column' field, in the 'Modifying series' section.");
+  } else if (Math.abs(Number(modifyColumn.value)) >= 0) {
+      return alert("Please do not enter a number in the 'column' field, in the 'Modifying series' section.");
+  } else if (modifyValue.value === "") {
+      return alert("Please enter the primary index in the 'value' field, in the 'Modifying series' section.");
+  } else if (Math.abs(Number(modifyValue.value)) >= 0) {
+      return alert("Please do not enter a number in the 'value' field, in the 'Modifying series' section.");
+  } else if (modifyIndex.value === "") {
+      return alert("Please enter the secondary index in the 'index' field, in the 'Modifying series' section.");
+  } else if (Math.abs(Number(modifyIndex.value)) >= 0) {
+      return alert("Please do not enter a number in the 'index' field, in the 'Modifying series' section.");
+  } else {
+      document.editor.textbox.value+="\n" + variable.value + "['" +modifyColumn.value + "'] = " + variable.value + "['" + modifyValue.value + "'] " + arg + " " + variable.value + "['" + modifyIndex.value + "']";
+  }
+}
