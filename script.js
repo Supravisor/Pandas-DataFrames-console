@@ -549,6 +549,7 @@ const masks = (arg) => {
 // Dropping
 let dropValue = document.getElementById("dropValue");
 let dropCol = document.getElementById("dropCol");
+let dropColumnStatus = false;
 
 const drop = () => {
   if (variable.value === "") {
