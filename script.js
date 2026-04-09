@@ -559,8 +559,10 @@ let row = document.getElementById("row");
 const drop = () => {
   if (variable.value === "") {
     return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
   } else if (dropValue.value === "") {
-      return alert("Please enter a value(s) in the 'drop value' field, in the 'Dropping' section.");
+      return alert("Please enter a value(s) in the 'drop value' field, if more than one please separate with commas, in the 'Dropping' section.");
   } else {
       let filter = dropValue.value;
       let regex = /\s*,\s*/g;
