@@ -811,7 +811,7 @@ const plot = (arg) => {
   } else if (plotColumn.value === "") {
       return alert("Please enter the column name in the 'column' field, in the 'Plot' section.");
   } else if (Math.abs(Number(plotColumn.value)) >= 0) {
-      return alert("Please do not enter a number in the 'variable' field, in the 'Plot' section.");
+      return alert("Please do not enter a number in the 'column' field, in the 'Plot' section.");
   } else {
       document.editor.textbox.value+="\n" + variable.value + "." + plotColumn.value + "." + arg + "()";
   }
