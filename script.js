@@ -630,3 +630,16 @@ const setAxis = (arg) => {
 
   }
 }
+
+// Modifying series
+const addDataFrame = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (array.value === "") {
+      return alert("Please enter a new variable name in the 'array' field, in the 'pandas.DataFrame object' section.");
+  } else if (modifyColumn.value === "") {
+      return alert("Please enter a column name in the 'column' field, in the 'Modifying series' section.");
+  } else {
+      document.editor.textbox.value+="\n" + variable.value + "['" + modifyColumn.value + "'] = " + array.value;
+  }
+}
