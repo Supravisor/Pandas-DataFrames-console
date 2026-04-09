@@ -670,3 +670,13 @@ const modifyDataFrame = () => {
       document.editor.textbox.value+="\n" + variable.value + "['" + modifyColumn.value + "'] = '" + modifyValue.value + "'";
   }
 }
+
+const renameDataFrame = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else {
+      document.editor.textbox.value+="\n" + variable.value + ".rename(\n    columns={\n        'old column 1': 'new column 1',\n        'old column 2': 'new column 2'\n    }, index={\n        'old index 1': 'new index 1',\n        'old index 2': 'new index 2'\n    })\n";
+  }
+}
