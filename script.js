@@ -789,8 +789,12 @@ const modifyBoolean = (arg) => {
       return alert("Please do not enter a number in the 'column' field, in the 'Modifying series' section.");
   } else if (modifyValue.value === "") {
       return alert("Please enter the primary index in the 'value' field, in the 'Modifying series' section.");
+  } else if (Math.abs(Number(modifyValue.value)) >= 0) {
+      return alert("Please do not enter a number in the 'value' field, in the 'Modifying series' section.");
   } else if (modifyIndex.value === "") {
       return alert("Please enter the secondary index in the 'index' field, in the 'Modifying series' section.");
+  } else if (Math.abs(Number(modifyIndex.value)) >= 0) {
+      return alert("Please do not enter a number in the 'index' field, in the 'Modifying series' section.");
   } else {
       document.editor.textbox.value+="\n" + variable.value + "['" +modifyColumn.value + "'] = " + variable.value + "['" + modifyValue.value + "'] " + arg + " " + variable.value + "['" + modifyIndex.value + "']";
   }
