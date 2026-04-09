@@ -545,3 +545,37 @@ const masks = (arg) => {
       document.editor.textbox.value+="\n" + variable.value + "[(" + conditionA.value + ") " + arg + " (" + conditionB.value + ")]";
   }
 }
+
+// Dropping
+const drop = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (dropValue.value === "") {
+      return alert("Please enter a value(s) in the 'drop value' field, in the 'Dropping' section.");
+  } else {
+      let filter = dropValue.value;
+      let regex = /\s*,\s*/g;
+
+      if (filter.split("").includes(",")) {
+        filter = "['" + filter.replaceAll(regex, "', '") + "']";
+      } else {
+         filter = "'" + filter + "'";
+      }
+
+      let column = "";
+      if (dropColumnStatus) {
+         column = "columns=";
+      }
+
+      let axisDrop = "";
+      if (dropAxis.value !== "") {
+        axisDrop = ", axis=" + dropAxis.value;
+      } else if (axisDropColumn !== "") {
+        axisDrop = ", axis='" + axisDropColumn + "s'";
+      } else if (axisDropRow !== "") {
+        axisDrop = ", axis='" + axisDropRow + "s'";
+      }
+
+      document.editor.textbox.value+="\n" + variable.value + ".drop(" + column + filter + axisDrop + ")";
+  }
+}
