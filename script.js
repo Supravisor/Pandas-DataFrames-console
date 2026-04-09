@@ -661,7 +661,7 @@ const modifyDataFrame = () => {
   } else if (modifyColumn.value === "") {
       return alert("Please enter a column name in the 'column' field, in the 'Modifying series' section.");
   } else if (Math.abs(Number(modifyColumn.value)) >= 0) {
-      return alert("Please do not enter a number in the 'array' field, in the 'Modifying series' section.");
+      return alert("Please do not enter a number in the 'column' field, in the 'Modifying series' section.");
   } else if (modifyValue.value === "") {
       return alert("Please enter a new value in the 'value' field, in the 'Modifying series' section.");
   } else if (Math.abs(Number(modifyValue.value)) >= 0) {
