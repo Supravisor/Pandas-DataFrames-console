@@ -504,6 +504,7 @@ let booleanFilter = document.getElementById("booleanFilter");
 let valueA = document.getElementById("valueA");
 let valueB = document.getElementById("valueB");
 let conditionA = document.getElementById("conditionA");
+let conditionB = document.getElementById("conditionB");
 
 const boolean = (arg) => {
   if (variable.value === "") {
@@ -536,11 +537,11 @@ const masks = (arg) => {
     return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
   } else if (Math.abs(Number(variable.value)) >= 0) {
       return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
-  } else if (valueA.value === "") {
+  } else if (conditionA.value === "") {
       return alert("Please enter a value in the 'condition A' field, in the 'Conditional selection (Boolean arrays)' section.");
-  } else if (valueB.value === "") {
+  } else if (conditionB.value === "") {
       return alert("Please enter a value in the 'condition B' field, in the 'Conditional selection (Boolean arrays)' section.");
   } else {
-      document.editor.textbox.value+="\n" + variable.value + "[(" + valueA.value + ") " + arg + " (" + valueB.value + ")]";
+      document.editor.textbox.value+="\n" + variable.value + "[(" + conditionA.value + ") " + arg + " (" + conditionB.value + ")]";
   }
 }
