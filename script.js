@@ -728,3 +728,13 @@ const dropIndexDataFrame = () => {
       document.editor.textbox.value+="\n" + variable.value + ".drop('" + modifyColumn.value + "', inplace=True)";
   }
 }
+
+const appendDataFrame = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else {
+      document.editor.textbox.value+="\n" + variable.value + ".append(pd.Series({\n    'column_1': 1,\n    'column_2': 2\n}, name='description'))";
+  }
+}
