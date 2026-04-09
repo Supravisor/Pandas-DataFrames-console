@@ -498,3 +498,50 @@ const addColumns = () => {
       }
   }
 }
+
+// Conditional selection (Boolean arrays)
+let booleanFilter = document.getElementById("booleanFilter");
+let valueA = document.getElementById("valueA");
+let valueB = document.getElementById("valueB");
+let conditionA = document.getElementById("conditionA");
+let conditionB = document.getElementById("conditionB");
+
+const boolean = (arg) => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (valueA.value === "") {
+    return alert("Please enter a value in the 'value A' field, in the 'Conditional selection (Boolean arrays)' section.");
+  } else if (valueB.value === "") {
+      return alert("Please enter a value in the 'value B' field, in the 'Conditional selection (Boolean arrays)' section.");
+  } else {
+      if (booleanFilter.value === "") {
+        document.editor.textbox.value+="\n" + variable.value + ".loc[" + variable.value + "['" + valueA.value + "'] " + arg + " " + valueB.value + "]";
+      } else {
+
+          let filter = booleanFilter.value;
+          if (filter.split("").includes(",")) {
+            filter = "['" + filter.replaceAll(", ", "', '") + "']";
+          } else {
+              filter = "'" + filter + "'";
+          }
+
+          document.editor.textbox.value+="\n" + variable.value + ".loc[" + variable.value + "['" + valueA.value + "'] " + arg + " " + valueB.value + ", " + filter + "]";
+      }
+  }
+}
+
+const masks = (arg) => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (conditionA.value === "") {
+      return alert("Please enter a value in the 'condition A' field, in the 'Conditional selection (Boolean arrays)' section.");
+  } else if (conditionB.value === "") {
+      return alert("Please enter a value in the 'condition B' field, in the 'Conditional selection (Boolean arrays)' section.");
+  } else {
+      document.editor.textbox.value+="\n" + variable.value + "[(" + conditionA.value + ") " + arg + " (" + conditionB.value + ")]";
+  }
+}
