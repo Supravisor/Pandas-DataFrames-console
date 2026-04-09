@@ -738,3 +738,17 @@ const appendDataFrame = () => {
       document.editor.textbox.value+="\n" + variable.value + ".append(pd.Series({\n    'column_1': 1,\n    'column_2': 2\n}, name='description'))";
   }
 }
+
+const appendIndexDataFrame = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (modifyColumn.value === "") {
+      return alert("Please enter a column name in the 'column' field, in the 'Modifying series' section.");
+  } else if (Math.abs(Number(modifyColumn.value)) >= 0) {
+      return alert("Please do not enter a number in the 'column' field, in the 'Modifying series' section.");
+  } else {
+      document.editor.textbox.value+="\n" + variable.value + ".loc['" + modifyColumn.value + "'] = pd.Series({\n    'column_1': 1,\n    'column_2': 2\n})";
+  }
+}
