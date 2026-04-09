@@ -550,6 +550,7 @@ const masks = (arg) => {
 let dropValue = document.getElementById("dropValue");
 let dropCol = document.getElementById("dropCol");
 let dropColumnStatus = false;
+let dropAxis = document.getElementById("dropAxis");
 
 const drop = () => {
   if (variable.value === "") {
