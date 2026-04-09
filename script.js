@@ -598,3 +598,33 @@ const dropColumn = () => {
       dropColumnStatus = false;
   }
 }
+
+const setAxis = (arg) => {
+  row.style.background = "white";
+  column.style.background = "white";
+
+  if (arg === "column") {
+
+    if (axisDropColumn === "") {
+      column.style.background = "#5c5cb8";
+      axisDropColumn = arg;
+      axisDropRow = "";
+    } else {
+        column.style.background = "white";
+        axisDropColumn = "";
+       axisDropRow = "";
+    }
+
+  } else if (arg === "row") {
+    if (axisDropRow === "") {
+      row.style.background = "#5c5cb8";
+      axisDropRow = arg;
+      axisDropColumn = "";
+    } else {
+        row.style.background = "white";
+        axisDropRow = "";
+        axisDropColumn = "";
+    }
+
+  }
+}
