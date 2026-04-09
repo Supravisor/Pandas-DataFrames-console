@@ -553,6 +553,7 @@ let dropColumnStatus = false;
 let dropAxis = document.getElementById("dropAxis");
 let axisDropColumn = "";
 let axisDropRow = "";
+let column = document.getElementById("column");
 
 const drop = () => {
   if (variable.value === "") {
