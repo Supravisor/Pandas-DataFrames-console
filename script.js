@@ -690,3 +690,13 @@ const lowerCaseDataFrame = () => {
       document.editor.textbox.value+="\n" + variable.value + ".rename(index=str.upper)";
   }
 }
+
+const upperCaseDataFrame = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else {
+      document.editor.textbox.value+="\n" + variable.value + ".rename(index=lambda x: x.lower())";
+  }
+}
