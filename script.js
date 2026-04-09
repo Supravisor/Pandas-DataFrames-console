@@ -547,6 +547,8 @@ const masks = (arg) => {
 }
 
 // Dropping
+let dropValue = document.getElementById("dropValue");
+
 const drop = () => {
   if (variable.value === "") {
     return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
