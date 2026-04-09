@@ -816,3 +816,17 @@ const plot = (arg) => {
       document.editor.textbox.value+="\n" + variable.value + "." + plotColumn.value + "." + arg + "()";
   }
 }
+
+const hist = (arg) => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (plotColumn.value === "") {
+      return alert("Please enter the column name in the 'column' field, in the 'Plot' section.");
+  } else if (Math.abs(Number(plotColumn.value)) >= 0) {
+      return alert("Please do not enter a number in the 'column' field, in the 'Plot' section.");
+  } else {
+      document.editor.textbox.value+="\nplt." + arg + "(" + variable.value + "." + plotColumn.value + ")";
+  }
+}
