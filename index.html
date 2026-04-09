@@ -287,6 +287,24 @@
   <input class="btn" name="conditionB" id="conditionB" placeholder="condition B" size="10" type="textfield" />
 </p>
 
+<hr />
+<h2>Dropping</h2>
+
+<p>
+  <input type="button" class="btn btn-primary" value="drop" onclick="drop();" />
+  <input class="btn" name="dropValue" id="dropValue" placeholder="drop value" type="textfield" />
+</p>
+
+<p>
+  <input type="button" class="btn" value="columns" id="dropCol" onclick="dropColumn();" />
+</p>
+
+<p>
+  <input class="btn" name="dropAxis" id="dropAxis" placeholder="axis" type="number" />
+  <input type="button" class="btn" value="column" id="column" onclick="setAxis(this.value);" />
+  <input type="button" class="btn" value="row" id="row" onclick="setAxis(this.value);" />
+</p>
+
               </div>
     
             </td>

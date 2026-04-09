@@ -545,3 +545,88 @@ const masks = (arg) => {
       document.editor.textbox.value+="\n" + variable.value + "[(" + conditionA.value + ") " + arg + " (" + conditionB.value + ")]";
   }
 }
+
+// Dropping
+let dropValue = document.getElementById("dropValue");
+let dropCol = document.getElementById("dropCol");
+let dropColumnStatus = false;
+let dropAxis = document.getElementById("dropAxis");
+let axisDropColumn = "";
+let axisDropRow = "";
+let column = document.getElementById("column");
+let row = document.getElementById("row");
+
+const drop = () => {
+  if (variable.value === "") {
+    return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (Math.abs(Number(variable.value)) >= 0) {
+      return alert("Please do not enter a number in the 'variable' field, in the 'pandas.DataFrame object' section.");
+  } else if (dropValue.value === "") {
+      return alert("Please enter a value(s) in the 'drop value' field, if more than one please separate with commas, in the 'Dropping' section.");
+  } else {
+      let filter = dropValue.value;
+      let regex = /\s*,\s*/g;
+
+      if (filter.split("").includes(",")) {
+        filter = "['" + filter.replaceAll(regex, "', '") + "']";
+      } else {
+         filter = "'" + filter + "'";
+      }
+
+      let column = "";
+      if (dropColumnStatus) {
+         column = "columns=";
+      }
+
+      let axisDrop = "";
+      if (dropAxis.value !== "") {
+        axisDrop = ", axis=" + dropAxis.value;
+      } else if (axisDropColumn !== "") {
+          axisDrop = ", axis='" + axisDropColumn + "s'";
+      } else if (axisDropRow !== "") {
+          axisDrop = ", axis='" + axisDropRow + "s'";
+      }
+
+      document.editor.textbox.value+="\n" + variable.value + ".drop(" + column + filter + axisDrop + ")";
+  }
+}
+
+const dropColumn = () => {
+  if (dropColumnStatus === false) {
+    dropCol.style.background = "#5c5cb8";
+    dropColumnStatus = true;
+  } else {
+      dropCol.style.background = "white";
+      dropColumnStatus = false;
+  }
+}
+
+const setAxis = (arg) => {
+  row.style.background = "white";
+  column.style.background = "white";
+
+  if (arg === "column") {
+
+    if (axisDropColumn === "") {
+      column.style.background = "#5c5cb8";
+      axisDropColumn = arg;
+      axisDropRow = "";
+    } else {
+        column.style.background = "white";
+        axisDropColumn = "";
+       axisDropRow = "";
+    }
+
+  } else if (arg === "row") {
+    if (axisDropRow === "") {
+      row.style.background = "#5c5cb8";
+      axisDropRow = arg;
+      axisDropColumn = "";
+    } else {
+        row.style.background = "white";
+        axisDropRow = "";
+        axisDropColumn = "";
+    }
+
+  }
+}
