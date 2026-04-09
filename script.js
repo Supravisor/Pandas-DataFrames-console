@@ -632,6 +632,8 @@ const setAxis = (arg) => {
 }
 
 // Modifying series
+let modifyColumn = document.getElementById("modifyColumn");
+
 const addDataFrame = () => {
   if (variable.value === "") {
     return alert("Please enter a variable name in the 'variable' field, in the 'pandas.DataFrame object' section.");
